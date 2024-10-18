@@ -2216,7 +2216,7 @@ MonoBehaviour:
   minY: -5.5
   maxVelocity: 15
   scoreText: {fileID: 925936961}
-  maxScoreText: {fileID: 0}
+  maxScoreText: {fileID: 1973892288}
   livesImage:
   - {fileID: 2099301919}
   - {fileID: 2008481230}

@@ -49,7 +49,7 @@ public class BouncyBall : MonoBehaviour
                 {
                     transform.position = Vector3.zero;
                 }
-                rb.velocity = Vector2.down * 10f;
+                rb.velocity = Vector2.down * 7.5f;
                 GameManager.instance.lives--;
                 UpdateLivesUI();
             }
