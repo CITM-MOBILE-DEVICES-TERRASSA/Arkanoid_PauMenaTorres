@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelGenerator : MonoBehaviour
 {
+    public static LevelGenerator instance;
     public Vector2Int size = new Vector2Int(10, 5);
     public Vector2 offset = new Vector2(1.1f, 0.6f);
     public GameObject brickPrefab;
@@ -27,6 +28,18 @@ public class LevelGenerator : MonoBehaviour
 
     private void Awake()
     {
+        if (instance == null)
+        {
+            if (SceneManager.GetActiveScene().name != "MainMenu")
+            {
+                instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         for (int i = 0; i < size.x; i++)
         {
             for (int j = 0; j < size.y; j++) 

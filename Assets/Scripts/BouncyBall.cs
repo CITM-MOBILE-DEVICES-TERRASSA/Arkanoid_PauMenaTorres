@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class BouncyBall : MonoBehaviour
 {
+    public static BouncyBall instance;
     public float minY = -5.5f;
     public float maxVelocity = 15f;
     Rigidbody2D rb;
@@ -58,6 +59,7 @@ public class BouncyBall : MonoBehaviour
         if (brickCount <= 0)
         {
             youWinPanel.SetActive(true);
+            LevelGenerator.Destroy(GameObject.FindObjectOfType<LevelGenerator>().gameObject);
             Time.timeScale = 0;
         }
 
