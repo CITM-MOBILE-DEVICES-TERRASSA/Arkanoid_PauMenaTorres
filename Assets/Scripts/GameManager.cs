@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -35,7 +36,32 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        LoadMaxScore();
         score = 0;
         lives = 3;
+
+    }
+
+    public void SaveGame()
+    {
+        PlayerPrefs.SetInt("MaxScore", maxScore);
+        PlayerPrefs.SetInt("Lives", lives);
+        PlayerPrefs.SetInt("Score", score);
+        PlayerPrefs.SetInt("Scene", UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+        
+
+        PlayerPrefs.Save();
+    }
+    
+    public void LoadMaxScore()
+    {
+        maxScore = PlayerPrefs.GetInt("MaxScore");
+    }   
+    public void LoadGame()
+    {
+        maxScore = PlayerPrefs.GetInt("MaxScore");
+        lives = PlayerPrefs.GetInt("Lives");
+        score = PlayerPrefs.GetInt("Score");
+        UnityEngine.SceneManagement.SceneManager.LoadScene(PlayerPrefs.GetInt("Scene"));
     }
 }

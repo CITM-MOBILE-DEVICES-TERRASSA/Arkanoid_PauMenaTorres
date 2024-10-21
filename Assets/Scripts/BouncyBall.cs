@@ -59,7 +59,6 @@ public class BouncyBall : MonoBehaviour
         if (brickCount <= 0)
         {
             youWinPanel.SetActive(true);
-            LevelGenerator.Destroy(GameObject.FindObjectOfType<LevelGenerator>().gameObject);
             Time.timeScale = 0;
         }
 

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {   
+    public static MenuManager instance;
     private static int previousSceneIndex = -1;
     private static int currentSceneIndex;
 
@@ -66,6 +67,20 @@ public class MenuManager : MonoBehaviour
 
     public void RestartGame()
     {
+       GoToScene(SceneManager.GetActiveScene().buildIndex + 1);
+       LevelGenerator.instance.RestartGame();
        GameManager.instance.RestartGame();
+    }
+
+    public void SaveGame()
+    {
+        GoToScene(0);
+        GameManager.instance.SaveGame();
+    }
+
+    public void LoadGame()
+    {
+        GoLastScene();
+        GameManager.instance.LoadGame();
     }
 }
