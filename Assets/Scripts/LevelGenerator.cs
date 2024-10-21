@@ -5,14 +5,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-
-
 public class LevelGenerator : MonoBehaviour
 {
     public static LevelGenerator instance;
     public Vector2Int size = new Vector2Int(10, 5);
     public Vector2 offset = new Vector2(1.1f, 0.6f);
     public GameObject brickPrefab;
+    public int score = 0; // Variable para la puntuación
+
+    private bool powerUpUsed = false; // Variable para controlar si el Power-Up ya ha sido utilizado
 
     public Gradient gradient = new Gradient
     {
@@ -48,21 +49,16 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        if (!powerUpUsed && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))) // Verificamos si el Power-Up no ha sido usado
         {
-            Debug.Log("W or Up Arrow key was pressed.");
             PowerUpDestroyRandomColumn();
+            powerUpUsed = true; // Marcamos el Power-Up como usado
         }
     }
 
- public void PowerUpDestroyRandomColumn()
+    public void PowerUpDestroyRandomColumn()
     {
         int randomColumn = Random.Range(0, size.x); // Selecciona columna aleatoria
         float targetXPosition = transform.position.x + (randomColumn - (size.x - 1) * 0.5f) * offset.x; // Calcula la posición en X de la columna seleccionada
@@ -98,6 +94,7 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 }
+
 
 
 
