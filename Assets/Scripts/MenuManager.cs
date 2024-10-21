@@ -68,7 +68,6 @@ public class MenuManager : MonoBehaviour
     public void RestartGame()
     {
        GoToScene(SceneManager.GetActiveScene().buildIndex + 1);
-       LevelGenerator.instance.RestartGame();
        GameManager.instance.RestartGame();
     }
 

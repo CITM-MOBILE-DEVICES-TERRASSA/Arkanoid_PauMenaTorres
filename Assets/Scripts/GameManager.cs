@@ -36,10 +36,8 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        LoadMaxScore();
         score = 0;
         lives = 3;
-
     }
 
     public void SaveGame()
@@ -52,11 +50,6 @@ public class GameManager : MonoBehaviour
 
         PlayerPrefs.Save();
     }
-    
-    public void LoadMaxScore()
-    {
-        maxScore = PlayerPrefs.GetInt("MaxScore");
-    }   
     public void LoadGame()
     {
         maxScore = PlayerPrefs.GetInt("MaxScore");

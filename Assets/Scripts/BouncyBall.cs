@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEditor.PackageManager;
 
 public class BouncyBall : MonoBehaviour
 {
-    public static BouncyBall instance;
     public float minY = -5.5f;
     public float maxVelocity = 15f;
     Rigidbody2D rb;
@@ -16,7 +16,7 @@ public class BouncyBall : MonoBehaviour
     public GameObject[] livesImage;
     public GameObject gameOverPanel;
     public GameObject youWinPanel;
-    int brickCount;
+    public int brickCount;
 
     void Start()
     {
@@ -86,7 +86,7 @@ public class BouncyBall : MonoBehaviour
                 if (brick.resistance <= 0)
                 {
                     Destroy(collision.gameObject);
-                    GameManager.instance.score += 10;
+                    GameManager.instance.score += 50;
                     scoreText.text = GameManager.instance.score.ToString("00000");
 
                     // Actualizamos el puntaje máximo si es necesario
