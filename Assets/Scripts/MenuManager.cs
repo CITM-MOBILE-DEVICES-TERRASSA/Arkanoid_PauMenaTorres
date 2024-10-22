@@ -71,9 +71,13 @@ public class MenuManager : MonoBehaviour
        GameManager.instance.RestartGame();
     }
 
-    public void SaveGame()
+    public void PauseGame()
     {
         GoToScene(0);
+        GameManager.instance.SaveGame();
+    }
+    public void SaveGame()
+    {
         GameManager.instance.SaveGame();
     }
 
