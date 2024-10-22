@@ -2425,6 +2425,7 @@ MonoBehaviour:
   gameOverPanel: {fileID: 159948511}
   youWinPanel: {fileID: 68761611}
   brickCount: 0
+  collisionSound: {fileID: 8300000, guid: 95148f4e6b2434946964092d0f8721c0, type: 3}
 --- !u!1 &1702995638
 GameObject:
   m_ObjectHideFlags: 0

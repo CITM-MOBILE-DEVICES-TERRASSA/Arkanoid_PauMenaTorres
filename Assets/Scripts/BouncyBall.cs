@@ -17,13 +17,24 @@ public class BouncyBall : MonoBehaviour
     public GameObject youWinPanel;
     public int brickCount;
 
+    // Añadimos una variable para el clip de sonido
+    public AudioClip collisionSound;
+    private AudioSource audioSource;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); 
         brickCount = GameObject.FindObjectOfType<LevelGenerator>().transform.childCount; 
         rb.velocity = Vector2.down * 7.5f;
 
-        // Actualizamos el texto del puntaje al iniciar
+        // Inicializamos el AudioSource
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            // Si el objeto no tiene un AudioSource, se lo añadimos
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
         scoreText.text = GameManager.instance.score.ToString("00000");
         maxScoreText.text = GameManager.instance.maxScore.ToString("00000"); // Mostramos el puntaje máximo
         UpdateLivesUI();
@@ -74,6 +85,9 @@ public class BouncyBall : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // Reproducir el sonido de colisión al chocar con cualquier cosa
+        PlayCollisionSound();
+
         if (collision.gameObject.CompareTag("Brick"))
         {
             Brick brick = collision.gameObject.GetComponent<Brick>();
@@ -95,6 +109,15 @@ public class BouncyBall : MonoBehaviour
                     brickCount--;
                 }
             }
+        }
+    }
+
+    // Método para reproducir el sonido de colisión
+    void PlayCollisionSound()
+    {
+        if (collisionSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(collisionSound);
         }
     }
 
