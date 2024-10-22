@@ -86,4 +86,9 @@ public class MenuManager : MonoBehaviour
         GoLastScene();
         GameManager.instance.LoadGame();
     }
+
+    public void RechargeCurrentScene()
+    {
+        GoToScene(currentSceneIndex);
+    }
 }
