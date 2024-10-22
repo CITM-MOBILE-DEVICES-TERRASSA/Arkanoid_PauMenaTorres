@@ -2425,7 +2425,7 @@ MonoBehaviour:
   gameOverPanel: {fileID: 159948511}
   youWinPanel: {fileID: 68761611}
   brickCount: 0
-  collisionSound: {fileID: 8300000, guid: 95148f4e6b2434946964092d0f8721c0, type: 3}
+  collisionSound: {fileID: 8300000, guid: 52f1b9814ebee4a6090c5acd59f8323e, type: 3}
 --- !u!1 &1702995638
 GameObject:
   m_ObjectHideFlags: 0
@@ -2453,11 +2453,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c685d81d2a2a74829af35e17adab24a2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a9bd3a678f3e04ef8b45c3a658b8b041, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.75
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
