@@ -19,3 +19,8 @@
 ## Diagrama UML
 
 <img width="761" alt="DiagramaUML_Arkanoid_PauMenaTorres" src="https://github.com/user-attachments/assets/58d88e85-d1c6-4e65-a9ea-5d9ce7507f9e">
+
+## Video Explicativo
+
+[![Ver el video en YouTube](https://img.youtube.com/vi/0lcxVy9zW5w/maxresdefault.jpg)](https://youtu.be/0lcxVy9zW5w)
+
